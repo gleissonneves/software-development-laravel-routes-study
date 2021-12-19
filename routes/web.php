@@ -41,3 +41,10 @@ Route::get('user/{ida}/{name?}', fn(Int $ida, ?String $name = null): String => "
  * @return String
  */
 Route::get('compra/{id}', fn(Int $id): String => "compra {$id}")->where('$id','[0-9]');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dash', fn():String => "dashboard");
+
+    Route::get('/myuser', fn():String => "myuser");
+});
